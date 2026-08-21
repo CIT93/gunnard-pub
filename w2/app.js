@@ -7,23 +7,23 @@ const messageDisplayElement = document.getElementById("total_display");
 const updateButton = document.getElementById("add_item_btn");
 
 //These variables will change as the user interacts with the page.
-let userName = 'gunnard';
-const add_item_btn = 15;
-let total_display = 0
+
+const itemPrice = 15;
+let totalCost = 0
 
 // --- Part 2: Define a Function that Reacts to a Click---
 
 // A function is a block of code designed to perform a particular task.
 const handleButtonClick = function (){
     // Increase add_item_btn by 1 each time the button is clicked
-    total_display += add_item_btn;
+    totalCost += itemPrice;
     // Template strings (literal) to easily combine our variables and text into one message
-    let message = `Hello, ${userName}! you have added $ ${add_item_btn} dollars. 
-        Your new total is $ ${total_display}.`;
+    let message = `Hello! you have added $ ${itemPrice} dollars. 
+        Your new total is $ ${totalCost}.`;
 
     // This is basic decision-making in JavaScript!
     // Use a simple 'if' statement to make our page react differently based on add_item_btn.
-    if(total_display >= 76) {
+    if(totalCost >= 76) {
         // We can even change the style of an HTML element directly with JavaScript!
         // Change text color
         message += ' WOW, you are a super Rich!'
@@ -35,7 +35,7 @@ const handleButtonClick = function (){
     // This is how JavaScript makes changes visible on the web page!
     messageDisplayElement.textContent = message;
 
-    console.log(`Button Clicked! current total: ${add_item_btn}`)
+    console.log(`Button Clicked! current total: ${totalCost}`)
 };
 
 
@@ -49,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function (){
     // When 'updateButton' receives a 'click' event, the 'handleButtonClick' function will execute.
     updateButton.addEventListener('click', handleButtonClick);
 
-    messageDisplayElement.textContent = `Welcome, ${userName}! Click the button below to start adding`
+    messageDisplayElement.textContent = `Welcome! Click the button below to start adding`
 })
