@@ -40,13 +40,10 @@ const handleButtonClick = function (){
 
 document.addEventListener('DOMContentLoaded', function (){
     // --- Part 3: Make the Button Clickable (Event Listener) ---
-    // This part ensures our JavaScript code runs only AFTER the HTML is fully loaded and parsed.
-    // The 'DOMContentLoaded' event is perfect for this. It fires when the HTML document is ready.
-    console.log('DOM fully loaded and parsed, App is ready for interaction')
+    console.log('DOM fully loaded and parsed, App is ready for interaction');
 
-    // Attach an event listener to our 'updateButton.
-    // When 'updateButton' receives a 'click' event, the 'handleButtonClick' function will execute.
+    // Attached event listener to new button variable name
     updateButton.addEventListener('click', handleButtonClick);
 
     messageDisplayElement.textContent = `Welcome! Click the button below to start adding`
-})
+});
