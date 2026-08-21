@@ -3,29 +3,31 @@ console.log('Hello from app.js! Your JavaScript is connected and running!');
 
 // We use document.getElementById() to get a reference to an element by its unique ID.
 // We store these references in 'const' variables because the elements themselves won't change.
-const messageDisplayElement = document.getElementById("output-message");
-const updateButton = document.getElementById("update-button");
+const messageDisplayElement = document.getElementById("total_display");
+const updateButton = document.getElementById("add_item_btn");
 
 //These variables will change as the user interacts with the page.
 let userName = 'gunnard';
-let clickCount = 0;
+const add_item_btn = 15;
+let total_display = 0
 
 // --- Part 2: Define a Function that Reacts to a Click---
 
 // A function is a block of code designed to perform a particular task.
 const handleButtonClick = function (){
-    // Increase clickCount by 1 each time the button is clicked
-    clickCount++;
+    // Increase add_item_btn by 1 each time the button is clicked
+    total_display += add_item_btn;
     // Template strings (literal) to easily combine our variables and text into one message
-    let message = `Hello, ${userName}! you have clicked the button ${clickCount} time(s).`;
+    let message = `Hello, ${userName}! you have added $ ${add_item_btn} dollars. 
+        Your new total is $ ${total_display}.`;
 
     // This is basic decision-making in JavaScript!
-    // Use a simple 'if' statement to make our page react differently based on clickCount.
-    if(clickCount >= 5) {
+    // Use a simple 'if' statement to make our page react differently based on add_item_btn.
+    if(total_display >= 76) {
         // We can even change the style of an HTML element directly with JavaScript!
         // Change text color
-        message += ' WOW, you are a super clicker!'
-        messageDisplayElement.style.color = 'purple'; }
+        message += ' WOW, you are a super Rich!'
+        messageDisplayElement.style.color = 'green'; }
     else {
         messageDisplayElement.style.color = '#333';
     }
@@ -33,7 +35,7 @@ const handleButtonClick = function (){
     // This is how JavaScript makes changes visible on the web page!
     messageDisplayElement.textContent = message;
 
-    console.log(`Button Clicked! current click count: ${clickCount}`)
+    console.log(`Button Clicked! current total: ${add_item_btn}`)
 };
 
 
@@ -47,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function (){
     // When 'updateButton' receives a 'click' event, the 'handleButtonClick' function will execute.
     updateButton.addEventListener('click', handleButtonClick);
 
-    messageDisplayElement.textContent = `Welcome, ${userName}! Click the button below to start counting`
+    messageDisplayElement.textContent = `Welcome, ${userName}! Click the button below to start adding`
 })
