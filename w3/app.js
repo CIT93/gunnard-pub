@@ -14,11 +14,28 @@ const householdMembersInput = carbonFootprintForm.querySelector('#householdMembe
 const clearFormButton = document.getElementById('clearFormButton');
 
 // Handles the Form submission event.
-const handleFormSubmit = function () {
-    console.log('Form submitted'); }
+// @param {Event} event - The event object provided by the browser.
+const handleFormSubmit = function (event) {
+    // IMPORTANT: event.preventDefault()
+    // This stops the browser's default behavior of reloading the page when a form is submitted.
+    event.preventDefault();
+    console.log(event);
+    // The '.value' property always returns a string.
+    // parseInt() converts that string into a whole number.
+    // The '|| 1' is a safety net: if the input is empty or invalid, it defaults to 1.
+    const housHoldMembers= parseInt(householdMembersInput.value) || 1;
+    console.log(typeof housHoldMembers);
+    //Log the collected data to the console.
+    console.log(`Form submitted with houseHoldMembers ${housHoldMembers}`);
+}
 
 // Handles the Clear Form button.
 const handleClearForm = function () {
+    // The form.reset() method is a built-in browser function that resets all form fields
+    // back to their initial values as defined in the HTML.
+    carbonFootprintForm.reset();
+    // Manually ensure the default value for 'householdMembers' is 1.
+    householdMembersInput.value = 1;
     console.log('Clear button clicked'); }
 
 
