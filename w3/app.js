@@ -1,0 +1,49 @@
+console.log('Hello from app.js! Your JavaScript is connected and running!');
+// --- Part 1: Select HTML Elements ----
+
+// We use document.getElementById() to get a reference to an element by its unique ID.
+// We store these references in 'const' variables because the elements themselves won't change.
+const messageDisplayElement = document.getElementById("total_display");
+const updateButton = document.getElementById("add_item_btn");
+
+//These variables will change as the user interacts with the page.
+
+const itemPrice = 15;
+let totalCost = 0
+
+// --- Part 2: Define a Function that Reacts to a Click---
+
+// A function is a block of code designed to perform a particular task.
+const handleButtonClick = function (){
+    // Increase add_item_btn by 1 each time the button is clicked
+    totalCost += itemPrice;
+    // Template strings (literal) to easily combine our variables and text into one message
+    let message = `Current Total $${totalCost}.`;
+
+    // This is basic decision-making in JavaScript!
+    // Use a simple 'if' statement to make our page react differently based on add_item_btn.
+    if(totalCost >= 60) {
+        // We can even change the style of an HTML element directly with JavaScript!
+        // Change text color
+        message += ' Over Budget!'
+        messageDisplayElement.style.color = 'red'; }
+    else {
+        messageDisplayElement.style.color = 'green';
+    }
+    // Update the text content of our paragraph element on the page.
+    // This is how JavaScript makes changes visible on the web page!
+    messageDisplayElement.textContent = message;
+
+    console.log(`Button Clicked! current total: ${totalCost}`)
+};
+
+
+document.addEventListener('DOMContentLoaded', function (){
+    // --- Part 3: Make the Button Clickable (Event Listener) ---
+    console.log('DOM fully loaded and parsed, App is ready for interaction');
+
+    // Attached event listener to new button variable name
+    updateButton.addEventListener('click', handleButtonClick);
+
+    messageDisplayElement.textContent = `Welcome! Click the button below to start adding`
+});
