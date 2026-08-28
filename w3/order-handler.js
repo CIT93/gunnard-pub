@@ -6,6 +6,7 @@ const sizeRadios = document.querySelectorAll('input[name="size"]');
 function getSelectedRadioValue(radios) {
     for (const radio of radios) {
         if (radio.checked) {
+            console.log(`${radio.value} has attribute of ${radio.checked}`);
             return radio.value;
         }
     }
