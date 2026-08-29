@@ -3,7 +3,7 @@ const giftWrapCheckbox = document.getElementById("gift-wrap");
 const sizeRadios = document.querySelectorAll('input[name="size"]');
 
 
-function getSelectedRadioValue(radios) {
+const getSelectedRadioValue = function (radios) {
     for (const radio of radios) {
         if (radio.checked) {
             console.log(`${radio.value} has attribute of ${radio.checked}`);
@@ -13,7 +13,7 @@ function getSelectedRadioValue(radios) {
     return null;
 }
 
-export function getOrderInputs() {
+export const getOrderInputs = function() {
     return {
         qty: parseInt(qtyInput.value, 10),
         size: getSelectedRadioValue(sizeRadios),

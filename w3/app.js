@@ -7,10 +7,9 @@ const orderSummaryElement = document.getElementById("order-summary");
 
 const itemPrice = 15;
 
-function handleOrderSubmit(event) {
+const handleOrderSubmit = function (event) {
 
     event.preventDefault();
-    const inputs = orderForm.getOrderInputs();
     let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt${inputs.qty > 1 ? 's' : ''}`;
 
     if (inputs.giftWrap) {
@@ -19,7 +18,7 @@ function handleOrderSubmit(event) {
     orderSummaryElement.textContent = summaryText;
 }
 
-function init() {
+const init = function () {
     // Attach the submit event listener to the form
     formElement.addEventListener("submit", handleOrderSubmit);
 
