@@ -10,7 +10,7 @@ const itemPrice = 15;
 const handleOrderSubmit = function (event) {
 
     event.preventDefault();
-    let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt${inputs.qty > 1 ? 's' : ''}`;
+    let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt${inputs.qty}`;
 
     if (inputs.giftWrap) {
         summaryText += " (gift wrapped)";
