@@ -10,12 +10,11 @@ const getSelectedRadioValue = function (radios) {
             return radio.value;
         }
     }
-    return null;
 }
 
 export const getOrderInputs = function() {
     return {
-        qty: parseInt(qtyInput.value, 10),
+        qty: parseInt(qtyInput.value) || 1,
         size: getSelectedRadioValue(sizeRadios),
         giftWrap: giftWrapCheckbox.checked
     };
