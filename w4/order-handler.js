@@ -10,6 +10,7 @@ const getSelectedRadioValue = function (radios) {
             return radio.value;
         }
     }
+    return null;
 }
 
 export const getOrderInputs = function() {

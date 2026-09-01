@@ -1,5 +1,6 @@
 import {getOrderInputs} from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js"; //import
+import * as resultDisplay from './results-display.js';
 
 const orders = []; //initialize array
 
@@ -21,14 +22,9 @@ const handleOrderSubmit = function (event) {
     }
 
     orders.push(newOrder);
-
     console.log(orders);
 
-    let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt`;
-    if (inputs.giftWrap) {
-        summaryText += " (gift wrapped)";
-    }
-    orderSummaryElement.textContent = summaryText;
+    resultDisplay.displayResults(newOrder)
 }
 
 const init = function () {
@@ -38,4 +34,4 @@ const init = function () {
     console.log("App Initialized");
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init);{}
