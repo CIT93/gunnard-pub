@@ -1,5 +1,7 @@
-import * as orderForm from "./order-handler.js";
 import {getOrderInputs} from "./order-handler.js";
+import * as priceCalculator from "./price-calculator.js"; //import
+
+const orders = []; //initialize array
 
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 
@@ -10,8 +12,19 @@ const handleOrderSubmit = function (event) {
 
     event.preventDefault();
     let inputs = getOrderInputs();
-    let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt`;
+    let calculatePrice = priceCalculator.calculateTotal(inputs);
 
+    const newOrder = {
+        ...inputs,  //order data
+        ...calculatePrice,//price data
+        timestamp: new Date().toISOString()
+    }
+
+    orders.push(newOrder);
+
+    console.log(orders);
+
+    let summaryText = `Ordered ${inputs.qty} ${inputs.size} T-Shirt`;
     if (inputs.giftWrap) {
         summaryText += " (gift wrapped)";
     }
