@@ -10,8 +10,10 @@ export const displayResults = function (newOrder){
     qtyDisplay.textContent = `${newOrder.qty}`
     sizeDisplay.textContent = `${newOrder.size}`
 
-    if (newOrder.giftWrap === false)  giftDisplay.textContent = `No`
+
+    if (!newOrder.giftWrap) giftDisplay.textContent = `No`
     else giftDisplay.textContent = `Yes`
+
 
     resultsContainer.style.display = 'block';
 }
