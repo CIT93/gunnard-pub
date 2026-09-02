@@ -11,7 +11,7 @@ const getSelectedRadioValue = function (radios) {
         }
     }
     return null;
-}
+};
 
 export const getOrderInputs = function() {
     return {
@@ -19,4 +19,4 @@ export const getOrderInputs = function() {
         size: getSelectedRadioValue(sizeRadios),
         giftWrap: giftWrapCheckbox.checked
     };
-}
+};

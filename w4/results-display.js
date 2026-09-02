@@ -9,7 +9,9 @@ export const displayResults = function (newOrder){
     totalCostDisplay.textContent = `${newOrder.totalPrice.toFixed(1)}`
     qtyDisplay.textContent = `${newOrder.qty}`
     sizeDisplay.textContent = `${newOrder.size}`
-    giftDisplay.textContent = newOrder.giftWrap ? `yes` : `no`;
+
+    if (newOrder.giftWrap === false)  giftDisplay.textContent = `No`
+    else giftDisplay.textContent = `Yes`
 
     resultsContainer.style.display = 'block';
 }
