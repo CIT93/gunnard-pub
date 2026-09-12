@@ -1,6 +1,7 @@
 import {getOrderInputs} from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js"; //import
 import * as resultDisplay from './results-display.js';
+import * as orderStorage from './order-storage.js';
 
 const orders = []; //initialize array
 
@@ -30,8 +31,15 @@ const handleOrderSubmit = function (event) {
 const init = function () {
     // attached submit event listener
     formElement.addEventListener("submit", handleOrderSubmit);
-
     console.log("App Initialized");
+
+    const loadOrders = orderStorage.loadOrders();
+    if(loadOrders > 0){
+        orders.push(...loadOrders);
+        console.log('Entries loaded localStorage') }
+    else {
+        console.log('No entries found in localStorage, starting fresh')
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);{}
