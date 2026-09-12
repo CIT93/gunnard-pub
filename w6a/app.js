@@ -23,8 +23,9 @@ const handleOrderSubmit = function (event) {
     }
 
     orders.push(newOrder);
-    console.log(orders);
+    orderStorage.saveOrders(orderStorage);
 
+    console.log(orders)
     resultDisplay.displayResults(newOrder)
 }
 
