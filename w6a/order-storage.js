@@ -1,9 +1,9 @@
-const LOCAL_STORAGE_KEY = 'orders';
+const LOCAL_STORAGE_KEY = 'tshirt_orders_data';
 
-export const saveOrders = function(orders){
+export const saveOrders = function(tshirt_orders_data){
 
     try{
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(orders)); }
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tshirt_orders_data)); }
     catch (error){
         console.error(`Error saving data to localStorage: ${error}`);
     }

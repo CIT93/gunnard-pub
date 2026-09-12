@@ -23,7 +23,7 @@ const handleOrderSubmit = function (event) {
     }
 
     orders.push(newOrder);
-    orderStorage.saveOrders(orderStorage);
+    orderStorage.saveOrders(orders);
 
     console.log(orders)
     resultDisplay.displayResults(newOrder)
@@ -35,7 +35,7 @@ const init = function () {
     console.log("App Initialized");
 
     const loadOrders = orderStorage.loadOrders();
-    if(loadOrders > 0){
+    if(loadOrders.length > 0){
         orders.push(...loadOrders);
         console.log('Entries loaded localStorage') }
     else {
