@@ -8,12 +8,12 @@ const formatDisplayDate = function (timestamp) {
 };
 
 
-export const renderTable = function (orders){
+export const renderOrder = function (orders){
     const tbody = document.getElementById(`order-table-body`)
-    tbody.innerHTML = ``;
+    tbody.innerHTML = '';
 
     for(const  order of orders){
-        const row = orderHistorySection.createElement('tr');
+        const row = document.createElement('tr');
 
         row.innerHTML = `
         <td>${formatDisplayDate(order.timestamp)}</td>
