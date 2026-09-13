@@ -22,7 +22,7 @@ export const getOrderInputs = function() {
 };
 
 export const clearForm = function () {
-    qtyInput.value = 0;
+    qtyInput.value = 1;
     giftWrapCheckbox.checked = true;
     sizeRadios[0].checked = true;
     console.log('Cleared Form');
