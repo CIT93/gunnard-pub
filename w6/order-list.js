@@ -1,4 +1,5 @@
 const orderHistorySection = document.getElementById('order-history-section');
+const clearAllDataButton = document.getElementById('clear-btn');
 
 const formatDisplayDate = function (timestamp) {
     const date = new Date(timestamp);
@@ -7,6 +8,10 @@ const formatDisplayDate = function (timestamp) {
 
 };
 
+const formatGiftWrap = function (giftWrapCheckbox) {
+    if(giftWrapCheckbox) {return `YES`}
+    else {return `NO`}
+};
 
 export const renderOrder = function (orders){
     const tbody = document.getElementById(`order-table-body`)
@@ -19,6 +24,7 @@ export const renderOrder = function (orders){
         <td>${formatDisplayDate(order.timestamp)}</td>
         <td>${order.qty}</td>
         <td>${order.size}</td>
+        <td>${formatGiftWrap(order.giftWrap)}</td>
         <td>$${order.totalPrice}</td>`;
 
        tbody.appendChild(row)
