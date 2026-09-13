@@ -1,6 +1,6 @@
-import {getOrderInputs} from "./order-handler.js";
-import * as priceCalculator from "./price-calculator.js"; //import
-import * as resultDisplay from './results-display.js';
+import * as orderHandler from "./order-handler.js";
+import * as priceCalculator from "./price-calculator.js";
+//import * as resultDisplay from './results-display.js';
 import * as orderStorage from './order-storage.js';
 
 const orders = []; //initialize array
@@ -13,7 +13,7 @@ const orderSummaryElement = document.getElementById("order-summary");
 const handleOrderSubmit = function (event) {
 
     event.preventDefault();
-    let inputs = getOrderInputs();
+    let inputs = orderHandler.getOrderInputs();
     let calculatePrice = priceCalculator.calculateTotal(inputs);
 
     const newOrder = {

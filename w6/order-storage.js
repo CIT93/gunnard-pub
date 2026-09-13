@@ -19,3 +19,8 @@ export const loadOrders = function (){
         console.error(`Error loading entries from localStorage: ${e}`);
     }
 };
+
+export const clearAllEntries = function () {
+    localStorage.removeItem(LOCAL_STORAGE_KEY)
+    console.log('All entries cleared from localStorage')
+}
