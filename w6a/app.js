@@ -1,6 +1,6 @@
 import * as orderHandler from "./order-handler.js";
 import * as priceCalculator from "./price-calculator.js";
-//import * as resultDisplay from './results-display.js';
+import * as resultDisplay from './results-display.js';
 import * as orderStorage from './order-storage.js';
 
 const orders = []; //initialize array
