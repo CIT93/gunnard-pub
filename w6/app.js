@@ -36,7 +36,7 @@ const resetAllUIStates = function (){
 const performClearAllData = function () {
     orders.length = 0;
     console.log("In-memory array cleared:", orders);
-    orderStorage.clearAllEntries();
+    orderStorage.clearAllEntries();is
     orderList.renderOrder(orders);
     orderHandler.clearForm();
     //resultDisplay.hideResults();
