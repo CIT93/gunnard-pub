@@ -21,7 +21,7 @@ const calculateHouseholdPoints = function (householdMembers){
 const calculateHomeSizePoints = function (homeSquareFootage, isApartment) {
     if(isApartment) return 2;
     else if(homeSquareFootage > 2000) return 10;
-    else if(homeSquareFootage <= 1000) return 7;
+    else if(homeSquareFootage >= 1000) return 7;
     else if(homeSquareFootage > 0) return 4;
     else return 0; //default value
 };
