@@ -56,7 +56,7 @@ const showDeleteConfirmingButtons = function (actionCell, id, onDeleteCallback){
         e.stopPropagation();
         onDeleteCallback(id);
         resetRowConfirmationState();
-    }
+    })
 
     cancelBtn.addEventListener('click', function (e) {
         e.stopImmediatePropagation();
