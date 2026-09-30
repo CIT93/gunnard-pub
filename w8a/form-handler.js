@@ -43,7 +43,7 @@ export const  getFormInputs = function () {
         householdMembers: parseInt(householdMembersInput.value) || 1,
         homeSquareFootage: parseInt(homeSquareFootageInput.value) || 0,
         isApartment: isApartmentInput.checked,
-        dietType: getSelectedRadioValue(dietTypeRadio),
+        dietType: getSelectedRadioValue(dietTypeRadios),
         foodPackaging: getSelectedRadioValue(foodPackagingRadios)
     };
 };

@@ -63,6 +63,7 @@ const showDeleteConfirmingButtons = function (actionCell, id, onDeleteCallback){
         resetRowConfirmationState();
     })
     console.log(`Asking for confirmation for row id ${id}`);
+    console.log(`Asking for confirmation for row id ${id}`);
 
 };
 
