@@ -25,7 +25,12 @@ export const renderOrder = function (orders){
         <td>${order.qty}</td>
         <td>${order.size}</td>
         <td>${formatGiftWrap(order.giftWrap)}</td>
-        <td>$${order.totalPrice}</td>`;
+        <td>$${order.totalPrice}</td>
+        <td class = "action-cell"> 
+            <button class="action-button edit" data-id="${order.id}">Edit</button>
+            <button class="action-button delete" data-id="${order.id}">Delete</button>
+        </td>`;
+
 
         tbody.appendChild(row)
     }
