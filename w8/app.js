@@ -36,7 +36,7 @@ const resetAllUIStates = function (){
 const performClearAllData = function () {
     orders.length = 0;
     console.log("In-memory array cleared:", orders);
-    orderStorage.clearAllEntries();is
+    orderStorage.clearAllEntries();
     orderList.renderOrder(orders);
     orderHandler.clearForm();
     //resultDisplay.hideResults();
@@ -50,6 +50,7 @@ const handleOrderSubmit = function (event) {
     let calculatePrice = priceCalculator.calculateTotal(inputs);
 
     const newOrder = {
+        id: Date.now().toString(),
         ...inputs,  //order data
         ...calculatePrice,//price data
         timestamp: new Date().toISOString()
