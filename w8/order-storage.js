@@ -17,6 +17,7 @@ export const loadOrders = function (){
         else return []; }
     catch (e){
         console.error(`Error loading entries from localStorage: ${e}`);
+        return [];
     }
 };
 
