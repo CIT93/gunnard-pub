@@ -4,6 +4,7 @@ const clearAllDataButton = document.getElementById('clear-btn');
 // order-list.js top of file
 let moduleCallbacks = {};
 
+/*
 let currentConfirmingRowElement = null;
 let currentConfirmTimeoutID = null;
 
@@ -68,6 +69,7 @@ export const resetRowConfirmationState = function () {
         currentConfirmingRowElement = null;
     }
 };
+*/
 
 const formatDisplayDate = function (timestamp) {
     const date = new Date(timestamp);
@@ -87,18 +89,21 @@ tableBody.addEventListener('click', function(event) {
     const target = event.target;
     // 1. Get the ID from the button that was clicked
     const id = target.dataset.id;
-    const actionCell = target.closest('td');
+    // const actionCell = target.closest('td');  // only needed by the confirm-delete feature
 
     // 2. Guard Clause: If they clicked a row (white space) but NOT a button,
     // there will be no ID. So we stop the function immediately.
     if(!id) {return;}
 
     if(target.classList.contains('delete-btn') && typeof moduleCallbacks.onDelete === 'function'){
-        currentConfirmingRowElement = actionCell;
-        showDeleteConfirmingButtons(actionCell, id, moduleCallbacks.onDelete); }
+        // currentConfirmingRowElement = actionCell;
+        // showDeleteConfirmingButtons(actionCell, id, moduleCallbacks.onDelete);
+
+        // w8 challenge version: call the delete callback directly
+        moduleCallbacks.onDelete(id); }
     else if(target.classList.contains('edit-btn') && typeof moduleCallbacks.onEdit === 'function'){
         // Clear any pending delete confirmation before editing
-        resetRowConfirmationState();
+        // resetRowConfirmationState();
         // Call the edit callback provided by app.js
         moduleCallbacks.onEdit(id);
         //console.log('edit will be coded later')
@@ -132,6 +137,3 @@ export const renderOrders = function (orders, callbacks){
         tbody.appendChild(row)
     }
 }
-
-
-
