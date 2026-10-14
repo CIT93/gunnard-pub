@@ -4,7 +4,7 @@ const clearAllDataButton = document.getElementById('clear-btn');
 // order-list.js top of file
 let moduleCallbacks = {};
 
-/*
+
 let currentConfirmingRowElement = null;
 let currentConfirmTimeoutID = null;
 
@@ -69,7 +69,7 @@ export const resetRowConfirmationState = function () {
         currentConfirmingRowElement = null;
     }
 };
-*/
+
 
 const formatDisplayDate = function (timestamp) {
     const date = new Date(timestamp);

@@ -17,7 +17,7 @@ let isConfirmingClearAll = false;
 let clearAllTimeoutId = null;
 
 const handleDelete = function(id) {
-    /*
+
     //Find the index of the entry to delete in our in-memory array.
         const indexToDelete = orders.findIndex(function (entry) {
         console.log(entry);
@@ -28,7 +28,7 @@ const handleDelete = function(id) {
         orders.splice(indexToDelete, 1);
         console.log('Entry removed from memory');
         // 3. Save the modified (smaller) array back to localStorage.
-        orderStorage.saveOrders((orders));
+        orderStorage.saveOrders(orders);
         // 4. Re-render the table to reflect the deletion.
         orderList.renderOrders(orders, {
             onEdit: handleEdit,
@@ -47,7 +47,7 @@ const handleDelete = function(id) {
         console.log(`Entry with id ${id} not found for deletion`);
         resetAllUIStates();
     }
-    */
+
     console.log("App.js: Requesting delete for order", id);
 };
 
