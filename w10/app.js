@@ -9,8 +9,11 @@ const orders = []; //initialize array
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 
 const formElement = document.getElementById("order-form");
-
 const clearAllDataButton = document.getElementById('clear-btn');
+
+const qtyInput = document.getElementById("qty");
+const giftWrapCheckbox = document.getElementById("gift-wrap");
+const orderIdInput = document.getElementById("order-id");
 
 
 let isConfirmingClearAll = false;
@@ -33,7 +36,6 @@ const handleDelete = function(id) {
         orderList.renderOrders(orders, {
             onEdit: handleEdit,
             onDelete: handleDelete,
-
         });
         // 5. If the table is now empty, hide the results section and clear the form.
         if(orders.length === 0){
@@ -47,11 +49,24 @@ const handleDelete = function(id) {
         console.log(`Entry with id ${id} not found for deletion`);
         resetAllUIStates();
     }
-
     console.log("App.js: Requesting delete for order", id);
 };
 
 const handleEdit = function(id) {
+    // Find order
+    const orderToEdit = orders.find(function (order) {
+        return order.id === id;
+    });
+
+    //populate visible inputs
+    if (orderToEdit) {
+        qtyInput.value = orderToEdit.qty;
+        document.querySelector(`input[name="size"][value="${orderToEdit.size}"]`).checked = true;
+        giftWrapCheckbox.checked = orderToEdit.giftWrap;
+        orderIdInput.value = orderToEdit.id;
+        console.log(`Form populated for editing order id: ${orderToEdit.id}`);
+    }
+    else console.log(`Order with id ${id} not found for editing`);
 
     console.log("App.js: Requesting edit for order", id);
 };
