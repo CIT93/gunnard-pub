@@ -141,7 +141,7 @@ const handleOrderSubmit = function (event) {
     orderStorage.saveOrders(orders);
 
     console.log(orders);
-    resultDisplay.displayResults(newOrder);
+    resultDisplay.displayResults(orderToDisplay);
     orderList.renderOrders(orders, {
         onDelete: handleDelete,
         onEdit: handleEdit
