@@ -14,6 +14,7 @@ const clearAllDataButton = document.getElementById('clear-btn');
 const qtyInput = document.getElementById("qty");
 const giftWrapCheckbox = document.getElementById("gift-wrap");
 const orderIdInput = document.getElementById("order-id");
+const submitButton = document.getElementById("submit-btn")
 
 
 let isConfirmingClearAll = false;
@@ -58,12 +59,13 @@ const handleEdit = function(id) {
         return order.id === id;
     });
 
-    //populate visible inputs
+    //populate visible input
     if (orderToEdit) {
         qtyInput.value = orderToEdit.qty;
         document.querySelector(`input[name="size"][value="${orderToEdit.size}"]`).checked = true;
         giftWrapCheckbox.checked = orderToEdit.giftWrap;
         orderIdInput.value = orderToEdit.id;
+        submitButton.textContent = 'Update Entry'
         console.log(`Form populated for editing order id: ${orderToEdit.id}`);
     }
     else console.log(`Order with id ${id} not found for editing`);
@@ -108,14 +110,34 @@ const handleOrderSubmit = function (event) {
     let inputs = orderHandler.getOrderInputs();
     let calculatePrice = priceCalculator.calculateTotal(inputs);
 
-    const newOrder = {
-        id: Date.now().toString(),
-        ...inputs,  //order data
-        ...calculatePrice,//price data
-        timestamp: new Date().toISOString()
-    }
+    // get hidden ID
+    const orderID = orderIdInput.value;
+    //
+    let orderToDisplay = null;
 
-    orders.push(newOrder);
+    // update an ID or create new
+    if (orderID){
+        const index= orders.findIndex(function (order) {
+            return order.id === orderID;
+        });
+        // merge into existing order
+        orders[index] = {
+            ...orders[index],
+            ...inputs,
+            ...calculatePrice
+        };
+        orderToDisplay = orders[index];
+    }
+    else {
+        const newOrder = {
+            id: Date.now().toString(),
+            ...inputs,  //order data
+            ...calculatePrice,//price data
+            timestamp: new Date().toISOString()
+        }
+        orders.push(newOrder);
+        orderToDisplay = newOrder;
+    }
     orderStorage.saveOrders(orders);
 
     console.log(orders);
@@ -126,6 +148,10 @@ const handleOrderSubmit = function (event) {
     });
     orderHandler.clearForm();
     resetAllUIStates();
+
+    //clear hidden id
+    orderIdInput.value = '';
+    formElement.reset();
 };
 
 const init = function () {
